@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="contactApp">
+    <head>
+        <title>View Contact</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/view.css" rel="stylesheet" type="text/css"/>
+        <script src="js/angular.js" type="text/javascript"></script>
+        <script src="js/angular-route.js" type="text/javascript"></script>
+        <script src="js/app.js" type="text/javascript"></script>
+        <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <hr>
+                <div class="alert alert-warning">
+                    <h4>Contact 1.0</h4>
+                    Simple Contact in Memory Form
+                </div>
+                <div class="col-md-12" ng-controller="contactListCtrl">
+
+
+                
+                    <div >
+                        <a href="addcontact.html"><span class="label label-success lg">Go Back to  Contact</span></a>
+                    </div>
+                    <hr>
+                   
+                        <div class="input-group col-md-12">
+                            <input type="text" ng-model="phone" class="form-control input-lg" placeholder="search with phone number" />
+
+                        </div>
+                        <div class="">
+                            <table class="table">
+                                <thead> 
+                                    <tr>
+                                        <th>#</th>
+                                        <th>ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Photo</th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                    <tr ng-repeat="contact in contactList | filter:phone"> 
+                                        <th scope="row">1</th> 
+                                        <td>{{contact.id}}</td> 
+                                        <td>{{contact.fname}}</td>
+                                        <td>{{contact.lname}}</td>
+                                        <td>{{contact.phone}}</td> 
+                                        <td>{{contact.address}}</td> 
+                                        <td><img width="80" height="80" ng-src="/getContactPhoto?contactid={{contact.id}}" alt="Description" /></td>
+                                    </tr> 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+       
+
+    </body>
+</html>
